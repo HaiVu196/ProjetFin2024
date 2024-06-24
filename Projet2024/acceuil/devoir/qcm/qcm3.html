@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sur les graphes orientés</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="qcm3.js" defer></script>
+    <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Quiz sur l'algorithme de Dijkstra</h1>
+    <nav>
+        <ul>
+            <li><a href="../../../acceuil/acceuil.html">Acceuil</a></li>
+            <li><a href="../../../acceuil/introduction/intro.html">Introduction</a></li>
+            <li><a href="../../../acceuil/concept/concept.html">Concept</a></li>
+            <li><a href="../../cas/cas2/cas2.html">Cas Pratique</a></li>
+            <li><a href="../test.html">Test</a></li>
+            <li><a href="../../quiz/quiz.html">Quiz</a></li>
+            <li><a href="../../../acceuil/conclusion/conclusion.html">Conclusion</a></li>
+            <li><a href="../../../acceuil/bibliographie/bibliographie.html">Bibliographie</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="dijkstra-box">
+        <h1>Quiz sur les graphes orientés</h1>
+        <div id="dijkstra-graph-container" class="center">
+            <!-- Le graphique sera dessiné ici -->
+        </div>
+        <div id="dijkstra-quiz-container" class="center">
+            <!-- Les questions du quiz seront affichées ici -->
+        </div>
+        <div class="button-container">
+            <button onclick="checkAnswers()" class="btn">Vérifier les réponses</button>
+        </div>
+        <p id="result" class="center"></p>
+    </div>
+</main>
+</body>
+</html>

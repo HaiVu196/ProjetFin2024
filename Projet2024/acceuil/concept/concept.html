@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Concept de l'algorithme de Dijkstra</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Algorithme de Dijkstra</h1>
+    <nav>
+        <ul>
+            <li><a href="../acceuil.html">Acceuil</a></li>
+            <li><a href="../introduction/intro.html">Introduction</a></li>
+            <li><a href="concept.html">Concept</a></li>
+            <li><a href="../cas/cas2/cas2.html">Cas Pratique</a></li>
+            <li><a href="../devoir/test.html">Test</a></li>
+            <li><a href="../quiz/quiz.html">Quiz</a></li>
+            <li><a href="../conclusion/conclusion.html">Conclusion</a></li>
+            <li><a href="../bibliographie/bibliographie.html">Bibliographie</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="concept-content">
+    <section class="content-left">
+        <h2>Concept de l'algorithme de Dijkstra</h2>
+        <div class="algorithm-step">
+            <h3>Initialisation de l'algorithme</h3>
+            <p>Le pseudo-code de l'algorithme de Dijkstra est donc identique à celui du parcours en profondeur, sauf qu'on utilise une file à priorité au lieu d'une file, afin d'organiser les éléments en fonction de leur distance au nœud de départ :</p>
+
+            <div class="code-block">
+            <pre>
+<code>
+function Dijkstra(Graphe, source):
+    // Graphe: Le graphe représenté par une liste d'adjacence ou une matrice d'adjacence
+    // source: Le sommet source
+
+    // Étape 1: Initialisation
+    dist[source] ← 0                   // La distance de la source à elle-même est 0
+    pour chaque sommet v dans Graphe:  // Initialiser la distance initiale
+        si v ≠ source:
+            dist[v] ← infini           // La distance de la source à tous les autres sommets est infinie
+        prev[v] ← indéfini             // Le sommet précédent de v sur le chemin le plus court à partir de la source
+        ajouter v à Q                  // Ajouter tous les sommets à l'ensemble des sommets non visités Q
+
+    // Étape 2: Algorithme principal
+    tant que Q n'est pas vide:         // Tant qu'il reste des sommets non visités dans Q
+        u ← sommet dans Q avec dist[u] minimal  // Sélectionner le sommet u dans Q avec la plus petite distance
+        retirer u de Q                          // Retirer u de Q
+
+        pour chaque voisin v de u:  // Parcourir tous les voisins du sommet u
+            alt ← dist[u] + longueur(u, v)  // Calculer la distance de la source à v en passant par u
+            si alt < dist[v]:               // Si la nouvelle distance est inférieure à la distance actuelle
+                dist[v] ← alt               // Mettre à jour la distance avec la plus petite valeur
+                prev[v] ← u                 // Mettre à jour le sommet précédent de v
+
+    // Étape 3: Résultat
+    retourner dist[], prev[]  // Retourner les tableaux de distances et de sommets précédents
+</code>
+    </pre>
+            </div>
+        </div>
+    </section>
+    <div class="btn-container">
+        <button class="btn" id="nextBtn" onclick="nextPage()">Comment fonctionnent les graphiques ?</button>
+    </div>
+</main>
+<footer>
+    <p>Copyright © 2024 - Concept</p>
+</footer>
+<script>
+    function nextPage() {
+        window.location.href = 'concept1/concept1.html'; // Change le chemin de la page suivante si nécessaire
+    }
+</script>
+</body>
+</html>

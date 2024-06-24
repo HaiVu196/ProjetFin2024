@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../../css/stylesss.css" />
+    <title>Algorithme de Dijkstra</title>
+</head>
+<body>
+<header>
+    <div class="title">
+        <a href="../../../acceuil/acceuil.html">Retour à la page d'accueil</a>
+    </div>
+    <div class="options">
+        <div>
+            <button class="outline-btn" id="add-edge-enable" onclick="addEdges()">Ajouter des arêtes</button>
+            <button class="outline-btn reset-btn" onclick="resetDrawingArea()" disabled>Effacer</button>
+        </div>
+        <div>
+            <input type="text" inputmode="numeric" id="source-node" placeholder="Noeud d'entrée"/>
+            <button class="outline-btn run-btn" onclick="findShortestPath(this)" disabled>Exécuter</button>
+        </div>
+    </div>
+</header>
+<main>
+<div class="drawing-area">
+    <p class="click-instruction">Cliquez pour créer un nœud</p>
+</div>
+<div class="path"></div>
+</main>
+<script src="jsap.js"></script>
+<script src="dijsktra2.js"></script>
+<footer>
+    <p>Copyright © 2024 - Test</p>
+</footer>
+</body>
+</html>

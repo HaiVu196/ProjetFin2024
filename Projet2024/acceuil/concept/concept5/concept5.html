@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Propositions</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <script src="concept5.js" defer></script>
+</head>
+<body>
+<header>
+    <h1>Algorithme de Dijkstra</h1>
+    <nav>
+        <ul>
+            <li><a href="../../acceuil.html">Acceuil</a></li>
+            <li><a href="../../introduction/intro.html">Introduction</a></li>
+            <li><a href="../concept.html">Concept</a></li>
+            <li><a href="../../cas/cas2/cas2.html">Cas Pratique</a></li>
+            <li><a href="../../devoir/test.html">Test</a></li>
+            <li><a href="../../quiz/quiz.html">Quiz</a></li>
+            <li><a href="../../conclusion/conclusion.html">Conclusion</a></li>
+            <li><a href="../../bibliographie/bibliographie.html">Bibliographie</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="content-left">
+        <h1>Complexité temporelle de l'algorithme de Dijkstra</h1>
+        <p>L'algorithme de Dijkstra est utilisé pour trouver le chemin le plus court depuis une source donnée vers tous les autres sommets d'un graphe pondéré. La complexité temporelle de cet algorithme dépend principalement de la structure de données utilisée pour implémenter la file de priorité.</p>
+
+        <h2>Cas de base sans file de priorité</h2>
+        <p>Si on utilise une simple liste ou une file pour choisir le sommet de plus petite distance à chaque itération, la complexité est O(V<sup>2</sup>), où V est le nombre de sommets.</p>
+
+        <h2>Avec une file de priorité (tas binaire)</h2>
+        <p>En utilisant un tas binaire (binary heap) pour la file de priorité, la complexité devient O((V + E) log V), où E est le nombre d'arêtes. Cette amélioration est due au fait que les opérations de mise à jour et d'extraction du sommet de plus petite distance se font en O(log V) temps.</p>
+
+        <h2>Avec un tas de Fibonacci</h2>
+        <p>En utilisant un tas de Fibonacci, la complexité peut être améliorée à O(V log V + E). Le tas de Fibonacci permet des opérations de diminution de clé en temps amorti O(1), ce qui rend l'algorithme plus efficace pour les graphes denses.</p>
+
+        <h2>Synthèse</h2>
+        <ul>
+            <li>Sans file de priorité : O(V<sup>2</sup>)</li>
+            <li>Avec un tas binaire : O((V + E) log V)</li>
+            <li>Avec un tas de Fibonacci : O(V log V + E)</li>
+        </ul>
+        <p>Ainsi, l'algorithme de Dijkstra est plus efficace lorsqu'il est implémenté avec des structures de données avancées comme les tas binaires ou les tas de Fibonacci, surtout pour les graphes denses.</p>
+    </section>
+    <div class="btn-container">
+        <button class="btn" id="prevBtn" onclick="prevPage()">Theorie</button>
+        <button class="btn" id="nextBtn" onclick="nextPage()">Comparaison</button>
+    </div>
+</main>
+<footer>
+    <p>Copyright © 2024 - Concept 5</p>
+</footer>
+</body>
+</html>

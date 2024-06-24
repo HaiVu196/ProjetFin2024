@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conclusion sur l'Algorithme de Dijkstra</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <style>
+        h1, h2 {
+            text-align: left;
+        }
+        .content {
+            text-align: left;
+            margin: 10px;
+        }
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .tabs {
+            display: flex;
+            cursor: pointer;
+        }
+        .tab {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            background-color: #f4f4f4;
+            margin-right: 5px;
+        }
+        .tab.active {
+            background-color: white;
+            border-bottom: 1px solid white;
+        }
+        .tab-content {
+            display: none;
+            border: 1px solid #ddd;
+            padding: 15px;
+            background-color: #fff;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Conclusion sur l'Algorithme de Dijkstra</h1>
+    <nav>
+        <ul>
+            <li><a href="../acceuil.html">Acceuil</a></li>
+            <li><a href="../introduction/intro.html">Introduction</a></li>
+            <li><a href="../concept/concept.html">Concept</a></li>
+            <li><a href="../cas/cas2/cas2.html">Cas Pratique</a></li>
+            <li><a href="../devoir/test.html">Test</a></li>
+            <li><a href="../quiz/quiz.html">Quiz</a></li>
+            <li><a href="conclusion.html">Conclusion</a></li>
+            <li><a href="../bibliographie/bibliographie.html">Bibliographie</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="center-content">
+        <div class="content">
+            <h1>CONCLUSION</h1>
+            <h2>Algorithme de Dijkstra</h2>
+            <p>L'algorithme de Dijkstra est un algorithme de plus court chemin pour trouver le chemin le plus court entre des sommets dans un graphe pondéré. Il est largement utilisé dans les réseaux de communication, les systèmes de navigation GPS, et d'autres domaines où la détermination du chemin le plus court est essentielle.</p>
+
+            <h2>Bénéfices de l'algorithme de Dijkstra</h2>
+            <p><strong>1. Recherche de chemin le plus court :</strong> L'algorithme de Dijkstra est extrêmement efficace pour trouver le chemin le plus court dans un graphe pondéré sans poids négatif.</p>
+            <p><strong>2. Simplicité et compréhension :</strong> Cet algorithme est simple à comprendre et à implémenter, ce qui en fait un excellent outil pédagogique pour enseigner les concepts de la théorie des graphes.</p>
+            <p><strong>3. Large applicabilité :</strong> Il est utilisé dans de nombreux domaines pratiques tels que les réseaux informatiques, les systèmes de navigation, et la gestion de la chaîne d'approvisionnement.</p>
+
+            <h2>Améliorations futures grâce à Dijkstra</h2>
+            <p><strong>1. Optimisation des performances :</strong> L'utilisation de structures de données avancées comme la file de priorité Fibonacci peut améliorer l'efficacité de l'algorithme, en particulier pour les grands graphes.</p>
+            <p><strong>2. Intégration avec l'IA et le Machine Learning :</strong> En combinant l'algorithme de Dijkstra avec des techniques d'apprentissage automatique, on peut prédire et optimiser les chemins dans des systèmes complexes.</p>
+            <p><strong>3. Applications dans les systèmes intelligents :</strong> L'algorithme peut être utilisé dans des systèmes de transport intelligents pour optimiser le flux de trafic et réduire les congestions.</p>
+            <p><strong>4. Recherche et développement :</strong> Continuer à développer de nouvelles variantes de l'algorithme pour résoudre des problèmes toujours plus complexes.</p>
+
+            <h2>Conclusion</h2>
+            <p>En résumé, l'algorithme de Dijkstra est un outil puissant et polyvalent qui offre de nombreux avantages dans divers domaines. Son potentiel pour des améliorations futures et son applicabilité large en font un sujet de recherche et de développement continue dans le domaine de la théorie des graphes et des algorithmes.</p>
+        </div>
+    </section>
+    <div class="tabs-container">
+        <div class="tabs">
+            <div class="tab active" data-tab="java">Java</div>
+            <div class="tab" data-tab="javascript">JavaScript</div>
+            <div class="tab" data-tab="cpp">C++</div>
+            <div class="tab" data-tab="csharp">C#</div>
+            <div class="tab" data-tab="python">Python</div>
+        </div>
+    </div>
+    <h3>Vous trouverez ci-dessous quelques exemples de code de base auxquels vous pouvez vous référer</h3>
+
+    <div id="java" class="tab-content active">
+        <h2>Exemple en Java</h2>
+        <pre><code>
+import java.util.*;
+
+public class Dijkstra {
+    public static void dijkstra(Map&lt;Integer, Map&lt;Integer, Integer>> graphe, int source) {
+        // Initialisation
+        Map&lt;Integer, Integer> dist = new HashMap&lt;>();
+        Map&lt;Integer, Integer> prev = new HashMap&lt;>();
+        for (Integer sommet : graphe.keySet()) {
+            dist.put(sommet, Integer.MAX_VALUE);
+            prev.put(sommet, null);
+        }
+        dist.put(source, 0);
+
+        PriorityQueue&lt;Map.Entry&lt;Integer, Integer>> queue = new PriorityQueue&lt;>(Map.Entry.comparingByValue());
+        queue.add(new AbstractMap.SimpleEntry&lt;>(source, 0));
+
+        while (!queue.isEmpty()) {
+            int u = queue.poll().getKey();
+
+            for (Map.Entry&lt;Integer, Integer> voisin : graphe.get(u).entrySet()) {
+                int v = voisin.getKey();
+                int poids = voisin.getValue();
+                int alt = dist.get(u) + poids;
+
+                if (alt < dist.get(v)) {
+                    dist.put(v, alt);
+                    prev.put(v, u);
+                    queue.add(new AbstractMap.SimpleEntry&lt;>(v, alt));
+                }
+            }
+        }
+
+        // Affichage des résultats
+        System.out.println("Distances depuis la source " + source + ":");
+        for (Map.Entry&lt;Integer, Integer> entry : dist.entrySet()) {
+            System.out.println("Vers le sommet " + entry.getKey() + ": " + entry.getValue());
+        }
+
+        System.out.println("<br>Précédents sur le chemin le plus court:");
+        for (Map.Entry&lt;Integer, Integer> entry : prev.entrySet()) {
+            if (entry.getValue() != null) {
+                System.out.println("Le sommet " + entry.getKey() + " est précédé par " + entry.getValue());
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Map&lt;Integer, Map&lt;Integer, Integer>> graphe = new HashMap&lt;>();
+        graphe.put(0, Map.of(1, 2, 2, 1));
+        graphe.put(1, Map.of(0, 2, 3, 3));
+        graphe.put(2, Map.of(0, 1, 3, 4));
+        graphe.put(3, Map.of(1, 3, 2, 4));
+
+        int source = 0;
+        dijkstra(graphe, source);
+    }
+}
+        </code></pre>
+    </div>
+
+    <div id="javascript" class="tab-content">
+        <h2>Exemple en JavaScript</h2>
+        <pre><code>
+function dijkstra(graphe, source) {
+    // Initialisation
+    const dist = {};
+    const prev = {};
+    const pq = new PriorityQueue((a, b) => a[1] < b[1]);
+
+    for (const sommet in graphe) {
+        dist[sommet] = Infinity;
+        prev[sommet] = null;
+    }
+    dist[source] = 0;
+    pq.enqueue([source, 0]);
+
+    while (!pq.isEmpty()) {
+        const [u, d] = pq.dequeue();
+
+        if (d > dist[u]) continue;
+
+        for (const voisin in graphe[u]) {
+            const alt = dist[u] + graphe[u][voisin];
+            if (alt < dist[voisin]) {
+                dist[voisin] = alt;
+                prev[voisin] = u;
+                pq.enqueue([voisin, alt]);
+            }
+        }
+    }
+
+    console.log("Distances depuis la source " + source + ":");
+    for (const sommet in dist) {
+        console.log("Vers le sommet " + sommet + ": " + dist[sommet]);
+    }
+
+    console.log("<br>Précédents sur le chemin le plus court:");
+    for (const sommet in prev) {
+        if (prev[sommet] !== null) {
+            console.log("Le sommet " + sommet + " est précédé par " + prev[sommet]);
+        }
+    }
+}
+
+class PriorityQueue {
+    constructor(comparator = (a, b) => a > b) {
+        this._heap = [];
+        this._comparator = comparator;
+    }
+    isEmpty() {
+        return this._heap.length === 0;
+    }
+    enqueue(value) {
+        this._heap.push(value);
+        this._siftUp();
+    }
+    dequeue() {
+        const poppedValue = this._heap[0];
+        const bottom = this._heap.pop();
+        if (this._heap.length > 0) {
+            this._heap[0] = bottom;
+            this._siftDown();
+        }
+        return poppedValue;
+    }
+    _siftUp() {
+        let nodeIdx = this._heap.length - 1;
+        while (nodeIdx > 0 && this._comparator(this._heap[nodeIdx], this._heap[this._parent(nodeIdx)])) {
+            this._swap(nodeIdx, this._parent(nodeIdx));
+            nodeIdx = this._parent(nodeIdx);
+        }
+    }
+    _siftDown() {
+        let nodeIdx = 0;
+        while (
+            (this._left(nodeIdx) < this._heap.length && this._comparator(this._heap[this._left(nodeIdx)], this._heap[nodeIdx])) ||
+            (this._right(nodeIdx) < this._heap.length && this._comparator(this._heap[this._right(nodeIdx)], this._heap[nodeIdx]))
+        ) {
+            let greaterChildIdx = (this._right(nodeIdx) < this._heap.length && this._comparator(this._heap[this._right(nodeIdx)], this._heap[this._left(nodeIdx)]))
+                ? this._right(nodeIdx)
+                : this._left(nodeIdx);
+            this._swap(nodeIdx, greaterChildIdx);
+            nodeIdx = greaterChildIdx;
+        }
+    }
+    _parent(idx) {
+        return ((idx + 1) >>> 1) - 1;
+    }
+    _left(idx) {
+        return (idx << 1) + 1;
+    }
+    _right(idx) {
+        return (idx + 1) << 1;
+    }
+    _swap(idx1, idx2) {
+        [this._heap[idx1], this._heap[idx2]] = [this._heap[idx2], this._heap[idx1]];
+    }
+}
+
+// Exemple d'utilisation
+const graphe = {
+    0: {1: 2, 2: 1},
+    1: {0: 2, 3: 3},
+    2: {0: 1, 3: 4},
+    3: {1: 3, 2: 4}
+};
+
+const source = 0;
+dijkstra(graphe, source);
+        </code></pre>
+    </div>
+
+    <div id="cpp" class="tab-content">
+        <h2>Exemple en C++</h2>
+        <pre><code>
+#include &lt;iostream>
+#include &lt;vector>
+#include &lt;queue>
+#include &lt;unordered_map>
+#include &lt;limits>
+
+using namespace std;
+
+const int INF = numeric_limits&lt;int>::max();
+
+void dijkstra(const unordered_map&lt;int, unordered_map&lt;int, int>>& graphe, int source) {
+    // Initialisation
+    unordered_map&lt;int, int> dist;
+    unordered_map&lt;int, int> prev;
+    for (const auto& pair : graphe) {
+        dist[pair.first] = INF;
+        prev[pair.first] = -1;
+    }
+    dist[source] = 0;
+
+    // Utilisation d'une file de priorité pour la sélection de la distance minimale
+    priority_queue&lt;pair&lt;int, int>, vector&lt;pair&lt;int, int>>, greater&lt;pair&lt;int, int>>> queue;
+    queue.push({0, source});
+
+    while (!queue.empty()) {
+        int u = queue.top().second;
+        queue.pop();
+
+        // Parcourir tous les voisins de u
+        for (const auto& voisin : graphe.at(u)) {
+            int v = voisin.first;
+            int poids = voisin.second;
+            int alt = dist[u] + poids;
+
+            if (alt < dist[v]) {
+                dist[v] = alt;
+                prev[v] = u;
+                queue.push({alt, v});
+            }
+        }
+    }
+
+    // Affichage des distances et des précédents
+    cout << "Distances depuis la source " << source << ":";
+    for (const auto& pair : dist) {
+        cout << "Vers le sommet " << pair.first << ": " << pair.second << endl;
+    }
+
+    cout << "<br>Précédents sur le chemin le plus court:";
+    for (const auto& pair : prev) {
+        if (pair.second != -1) {
+            cout << "Le sommet " << pair.first << " est précédé par " << pair.second << endl;
+        }
+    }
+}
+
+int main() {
+    // Exemple de graphe
+    unordered_map&lt;int, unordered_map&lt;int, int>> graphe = {
+        {0, {{1, 2}, {2, 1}}},
+        {1, {{0, 2}, {3, 3}}},
+        {2, {{0, 1}, {3, 4}}},
+        {3, {{1, 3}, {2, 4}}}
+    };
+
+    int source = 0;
+    dijkstra(graphe, source);
+
+    return 0;
+}
+        </code></pre>
+    </div>
+
+    <div id="csharp" class="tab-content">
+        <h2>Exemple en C#</h2>
+        <pre><code>
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Dijkstra(Dictionary&lt;int, Dictionary&lt;int, int>> graphe, int source) {
+        // Initialisation
+        var dist = new Dictionary&lt;int, int>();
+        var prev = new Dictionary&lt;int, int>();
+        var pq = new SortedSet&lt;(int, int)>(Comparer&lt;(int, int)>.Create((a, b) => a.Item1 == b.Item1 ? a.Item2 - b.Item2 : a.Item1 - b.Item1));
+
+        foreach (var sommet in graphe.Keys) {
+            dist[sommet] = int.MaxValue;
+            prev[sommet] = -1;
+        }
+        dist[source] = 0;
+        pq.Add((0, source));
+
+        while (pq.Count > 0) {
+            var (d, u) = pq.Min;
+            pq.Remove(pq.Min);
+
+            foreach (var voisin in graphe[u]) {
+                int v = voisin.Key;
+                int poids = voisin.Value;
+                int alt = dist[u] + poids;
+
+                if (alt < dist[v]) {
+                    pq.Remove((dist[v], v));
+                    dist[v] = alt;
+                    prev[v] = u;
+                    pq.Add((alt, v));
+                }
+            }
+        }
+
+        // Affichage des résultats
+        Console.WriteLine("Distances depuis la source " + source + ":");
+        foreach (var kvp in dist) {
+            Console.WriteLine("Vers le sommet " + kvp.Key + ": " + kvp.Value);
+        }
+
+        Console.WriteLine("<br>Précédents sur le chemin le plus court:");
+        foreach (var kvp in prev) {
+            if (kvp.Value != -1) {
+                Console.WriteLine("Le sommet " + kvp.Key + " est précédé par " + kvp.Value);
+            }
+        }
+    }
+
+    static void Main() {
+        // Exemple de graphe
+        var graphe = new Dictionary&lt;int, Dictionary&lt;int, int>> {
+            {0, new Dictionary&lt;int, int> {{1, 2}, {2, 1}}},
+            {1, new Dictionary&lt;int, int> {{0, 2}, {3, 3}}},
+            {2, new Dictionary&lt;int, int> {{0, 1}, {3, 4}}},
+            {3, new Dictionary&lt;int, int> {{1, 3}, {2, 4}}}
+        };
+
+        int source = 0;
+        Dijkstra(graphe, source);
+    }
+}
+        </code></pre>
+    </div>
+
+    <div id="python" class="tab-content">
+        <h2>Exemple en Python</h2>
+        <pre><code>
+import heapq
+
+def dijkstra(graphe, source):
+    # Initialisation
+    dist = {sommet: float('inf') for sommet in graphe}
+    prev = {sommet: None for sommet in graphe}
+    dist[source] = 0
+    pq = [(0, source)]
+
+    while pq:
+        d, u = heapq.heappop(pq)
+
+        if d > dist[u]:
+            continue
+
+        for voisin, poids in graphe[u].items():
+            alt = dist[u] + poids
+            if alt < dist[voisin]:
+                dist[voisin] = alt
+                prev[voisin] = u
+                heapq.heappush(pq, (alt, voisin))
+
+    # Affichage des résultats
+    print("Distances depuis la source", source, ":")
+    for sommet in dist:
+        print("Vers le sommet", sommet, ":", dist[sommet])
+
+    print("<br>Précédents sur le chemin le plus court:")
+    for sommet in prev:
+        if prev[sommet] is not None:
+            print("Le sommet", sommet, "est précédé par", prev[sommet])
+
+# Exemple de graphe
+graphe = {
+    0: {1: 2, 2: 1},
+    1: {0: 2, 3: 3},
+    2: {0: 1, 3: 4},
+    3: {1: 3, 2: 4}
+}
+
+source = 0
+dijkstra(graphe, source)
+        </code></pre>
+    </div>
+</main>
+<script src="conclusion.js"></script>
+</body>
+</html>

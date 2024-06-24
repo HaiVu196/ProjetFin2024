@@ -1,0 +1,991 @@
+/* Styles généraux pour toute la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #6157fc;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+ul li a {
+    text-decoration: none;
+    color: rgb(97, 87, 252);
+    font-weight: bold;
+    border: 2px solid #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center; /* Căn giữa các liên kết */
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #6157fc;
+    color: white;
+    text-align: right;
+    padding: 0px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+main {
+    display: block;
+    min-height: calc(100vh - 160px); /* Điều chỉnh chiều cao trừ chiều cao của header và footer */
+    padding: 20px;
+    padding-bottom: 80px; /* Thêm padding dưới cùng để tránh bị che khuất */
+    box-sizing: border-box;
+}
+
+.content-left {
+    max-width: 800px;
+    margin: 0 auto; /* Căn giữa nội dung */
+    padding: 20px; /* Thêm padding vào nội dung */
+}
+
+.code-block {
+    background-color: #78bbf3; /* Thêm màu nền cho khung code */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    overflow-x: auto; /* Đảm bảo khung code không bị tràn */
+}
+
+/* Styles cho nút */
+.btn-container {
+    display: flex;
+    justify-content: center; /* Căn giữa các nút */
+    margin: 20px 0;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF; /* Màu nền nút */
+    color: white; /* Màu chữ */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px; /* Khoảng cách giữa các nút */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Màu nền khi hover */
+}
+
+/* Styles cho trang Test */
+.test-main h1 {
+    color: #333;
+    text-align: center;
+}
+
+.test-main div {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.test-main div a {
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.test-main div a:hover {
+    background-color: #0056b3;
+}
+
+/* Styles cho trang Quiz */
+#quiz-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh; /* Đảm bảo nội dung được căn giữa theo chiều dọc */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+#quiz-container h1 {
+    color: #333;
+    text-align: center;
+}
+
+#quiz-container #question {
+    font-size: 18px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+#quiz-container #options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#quiz-container #options button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0; /* Khoảng cách giữa các câu trả lời */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-grow: 1;
+    flex-basis: calc(100% - 40px); /* Đảm bảo kích thước bằng nhau và đều nhau */
+    max-width: 400px; /* Giới hạn kích thước tối đa */
+    text-align: center;
+}
+
+#quiz-container #options button:hover {
+    background-color: #0056b3;
+}
+
+#quiz-container #feedback {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+
+.home-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #f1e77d;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.home-link:hover {
+    background-color: #0056b3;
+}
+
+/* Styles cho phần thêm từ test.css */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+#problem {
+    flex-basis: 30%;
+    margin-right: 20px;
+}
+
+#table {
+    flex-basis: 40%;
+    margin-right: 20px;
+}
+
+#graph {
+    flex-basis: 30%;
+}
+
+.node circle {
+    fill: lightblue;
+    stroke: gray;
+    stroke-width: 1.5px;
+}
+
+.node text {
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.link {
+    fill: none;
+    stroke: #999;
+    stroke-width: 2px;
+}
+.side-image {
+    max-width: 150px; /* Thay đổi giá trị này để điều chỉnh kích thước */
+    height: auto; /* Đảm bảo tỉ lệ ảnh được giữ nguyên */
+    margin-right: 20px;
+}
+
+
+.link.shortest {
+    stroke: red;
+    stroke-width: 3px;
+}
+
+.link.text {
+    font-size: 12px;
+    fill: black;
+}
+
+.link.highlight {
+    stroke: blue;
+}
+
+.highlighted-node {
+    fill: red !important;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#explanation {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Styles cho phần nội dung căn giữa */
+.center-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.text-content {
+    flex: 1;
+    margin: 0 20px; /* Thêm lề trái và phải */
+}
+
+#graph {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 50px; /* Điều chỉnh giá trị này để thay đổi khoảng cách từ văn bản đến đồ thị */
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+#explanation {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+    text-align: right;
+}
+/* Styles  Concept */
+.concept-content .content-left {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.concept-content .code-block {
+    background-color: #78bbf3;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    overflow-x: auto;
+}
+.node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 3px;
+}
+
+.node.visited circle {
+    fill: red;
+}
+
+.node.current circle {
+    fill: orange;
+}
+
+.node text {
+    font: 12px sans-serif;
+    text-anchor: middle;
+    dy: 4;
+}
+
+.link {
+    fill: none;
+    stroke: #666;
+    stroke-width: 1.5px;
+}
+
+.link.active {
+    stroke: orange;
+    stroke-width: 3px;
+}
+
+.link.shortest {
+    stroke: red;
+    stroke-width: 3px;
+}
+
+.link-label {
+    font: 12px sans-serif;
+    fill: #000;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 5px 10px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.explanation1 {
+    padding: 15px 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    max-width: 780px;
+    color: #333;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+svg {
+    margin-top: 20px;
+}
+
+.notes {
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+    max-width: 780px;
+}
+
+.notes ul {
+    padding-left: 20px;
+}
+
+.notes li {
+    margin-bottom: 10px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.algorithm-step {
+    margin-bottom: 20px;
+}
+
+.algorithm-step h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+.algorithm-step p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+.node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 3px;
+}
+
+.node.visited circle {
+    fill: red;
+}
+
+.node.current circle {
+    fill: orange;
+}
+
+.node text {
+    font: 12px sans-serif;
+    text-anchor: middle;
+    dy: 4;
+}
+
+.link {
+    fill: none;
+    stroke: #666;
+    stroke-width: 1.5px;
+}
+
+.link.active {
+    stroke: orange;
+    stroke-width: 3px;
+}
+
+.link.shortest {
+    stroke: red;
+    stroke-width: 3px;
+}
+
+.link-label {
+    font: 12px sans-serif;
+    fill: #000;
+}
+
+/*.explanation {*/
+/*    padding: 15px 20px;*/
+/*    background-color: #f9f9f9;*/
+/*    border: 1px solid #ddd;*/
+/*    border-radius: 5px;*/
+/*    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+/*    font-size: 14px;*/
+/*    max-width: 780px;*/
+/*    color: #333;*/
+/*    line-height: 1.6;*/
+/*    margin: 20px 0;*/
+/*}*/
+
+svg {
+    margin-top: 10px;
+}
+
+.notes {
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+    max-width: 780px;
+}
+
+.notes ul {
+    padding-left: 20px;
+}
+
+.notes li {
+    margin-bottom: 10px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.formula {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    margin: 10px 0;
+}
+.content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.proposition {
+    border: 1px solid #009;
+    background-color: #eef;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.proposition h2 {
+    background-color: #cce;
+    padding: 5px;
+    margin: -10px -10px 10px -10px;
+}
+
+.formula {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    margin: 10px 0;
+}
+p {
+    text-align: justify;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+
+
+
+
+/* Các lớp CSS chung không ảnh hưởng đến các trang khác */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #756dea;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Các lớp CSS cụ thể cho cas.html */
+.cas-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.cas-problem {
+    flex-basis: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.cas-table {
+    flex-basis: 50%;
+    margin-right: 20px;
+}
+
+.cas-graph {
+    flex-basis: 50%;
+    margin-left: 20px;
+}
+
+.cas-node circle {
+    fill: #1f77b4;
+    stroke: #1f77b4;
+    stroke-width: 2px;
+    r: 15px;
+}
+
+.cas-node text {
+    font-size: 16px;
+    pointer-events: none;
+    fill: white;
+}
+
+.cas-link {
+    fill: none;
+    stroke: #999;
+    stroke-width: 2px;
+}
+
+.cas-link.shortest {
+    stroke: red;
+    stroke-width: 3px;
+}
+
+.cas-link.text {
+    font-size: 14px;
+    fill: black;
+}
+
+.cas-link.highlight {
+    stroke: blue;
+    stroke-width: 3px;
+}
+
+.cas-highlighted-node {
+    fill: red !important;
+}
+
+.cas-shortest-path-node {
+    fill: #ff0000 !important;
+    stroke: orange;
+    stroke-width: 2px;
+}
+
+.cas-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px #999;
+}
+
+.cas-button:hover {
+    background-color: #45a049;
+}
+
+.cas-button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+}
+
+.cas-explanation {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+
+.cas-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.cas-table th, .cas-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+}
+
+.cas-table th {
+    background-color: #f2f2f2;
+    font-size: 16px;
+}
+
+.cas-table td {
+    font-size: 14px;
+}
+
+.cas-table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.cas-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+
+
+
+/* Các lớp CSS chung không ảnh hưởng đến các trang khác */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #6157fc;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Các lớp CSS cụ thể cho cas2.html */
+.cas2-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.cas2-graph-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.cas2-graph {
+    flex-basis: 48%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/*.cas2-node circle {*/
+/*    fill: #1f77b4;*/
+/*    stroke: #1f77b4;*/
+/*    stroke-width: 2px;*/
+/*    r: 15px;*/
+/*}*/
+
+/*.cas2-node text {*/
+/*    font-size: 16px;*/
+/*    pointer-events: none;*/
+/*    fill: black;*/
+/*}*/
+
+/*.cas2-link {*/
+/*    fill: none;*/
+/*    stroke: #999;*/
+/*    stroke-width: 2px;*/
+/*}*/
+
+/*.cas2-link.shortest {*/
+/*    stroke: red;*/
+/*    stroke-width: 3px;*/
+/*}*/
+
+/*.cas2-link.text {*/
+/*    font-size: 14px;*/
+/*    fill: black;*/
+/*}*/
+
+/*.cas2-highlighted-node {*/
+/*    fill: red !important;*/
+/*}*/
+
+/*.cas2-shortest-path-node {*/
+/*    fill: yellow !important;*/
+/*    stroke: orange;*/
+/*    stroke-width: 2px;*/
+/*}*/
+
+.cas2-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px #999;
+}
+
+.cas2-button:hover {
+    background-color: #45a049;
+}
+
+.cas2-button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+}
+
+/*.cas2-results {*/
+/*    margin-top: 20px;*/
+/*    font-size: 14px;*/
+/*    color: #333;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.cas2-table {*/
+/*    width: 100%;*/
+/*    border-collapse: collapse;*/
+/*    margin: 20px auto;*/
+/*    background-color: white;*/
+/*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+/*    border-radius: 8px;*/
+/*}*/
+
+/*.cas2-table th, .cas2-table td {*/
+/*    border: 1px solid #ddd;*/
+/*    padding: 15px;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.cas2-table th {*/
+/*    background-color: #f2f2f2;*/
+/*    font-size: 16px;*/
+/*}*/
+
+/*.cas2-table td {*/
+/*    font-size: 14px;*/
+/*}*/
+
+/*.cas2-table tr:nth-child(even) {*/
+/*    background-color: #f9f9f9;*/
+/*}*/
+
+/*.cas2-table tr:hover {*/
+/*    background-color: #f1f1f1;*/
+/*}*/
+
+
+
+
+
+/*.center-content {*/
+/*    text-align: center;*/
+/*    background-color: #fff;*/
+/*    padding: 40px;*/
+/*    border-radius: 8px;*/
+/*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+#shortest-path-input {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    width: 50%;
+    font-size: 16px;
+    text-align: center;
+}
+
+.dijkstra-box {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dijkstra-box h1 {
+    margin-bottom: 20px;
+}
+
+.question {
+    margin-bottom: 15px;
+}
+
+.question p {
+    margin-bottom: 10px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+.button-row div {
+    flex: 1;
+    margin: 0 30px;
+    max-width: 200px; /* Limit the max width of the buttons */
+}
+.button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

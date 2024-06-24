@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mise à jour des distances</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <script src="concept2.js" defer></script>
+</head>
+<body>
+<header>
+    <h1>Algorithme de Dijkstra</h1>
+    <nav>
+        <ul>
+            <li><a href="../../acceuil.html">Acceuil</a></li>
+            <li><a href="../../introduction/intro.html">Introduction</a></li>
+            <li><a href="../concept.html">Concept</a></li>
+            <li><a href="../../cas/cas2/cas2.html">Cas Pratique</a></li>
+            <li><a href="../../devoir/test.html">Test</a></li>
+            <li><a href="../../quiz/quiz.html">Quiz</a></li>
+            <li><a href="../../conclusion/conclusion.html">Conclusion</a></li>
+            <li><a href="../../bibliographie/bibliographie.html">Bibliographie</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="content-left">
+        <div class="content">
+            <h1>Limitations</h1>
+            <p><strong>L'algorithme de Dijkstra est puissant, mais il présente certaines limitations :</strong></p>
+            <ul>
+                <li><strong>Poids négatifs :<br></strong><br> L'algorithme ne peut pas traiter les arêtes avec des poids négatifs. Si un graphe contient des arêtes de poids négatif, l'algorithme peut échouer ou produire des résultats incorrects.<br></li><br>
+                <li><strong>Complexité temporelle :<br></strong><br> Pour les grands graphes, l'algorithme peut être lent. Sans structures de données comme les files de priorité, la complexité peut atteindre O(V^2). Avec des structures de données appropriées, elle peut être réduite à O(E + V log V).</li><br>
+                <li><strong>Structures de données spécifiques :<br></strong><br> Pour une performance optimale, des structures comme les files de priorité sont nécessaires, ce qui complique l'implémentation et la maintenance.</li><br>
+                <li><strong>Adaptation aux types de graphes :<br></strong><br> Pour certains types de graphes, d'autres algorithmes comme Bellman-Ford ou Floyd-Warshall peuvent être plus efficaces.</li><br>
+                <li><strong>Chemin depuis une source unique :<br></strong><br> L'algorithme ne trouve le chemin le plus court qu'à partir d'une seule source. Pour trouver les chemins les plus courts entre tous les paires de sommets, il faut exécuter l'algorithme plusieurs fois ou utiliser un autre algorithme.</li><br>
+            </ul>
+        </div>
+    </section>
+    <div class="btn-container">
+        <button class="btn" id="prevBtn" onclick="prevPage()">Comment fonctionnent les graphiques ?</button>
+        <button class="btn" id="nextBtn" onclick="nextPage()">Graphique négatif</button>
+    </div>
+</main>
+<footer>
+    <p>Copyright © 2024 - Concept 2</p>
+</footer>
+</body>
+</html>

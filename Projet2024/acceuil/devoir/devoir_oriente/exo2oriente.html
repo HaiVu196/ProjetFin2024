@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dijkstra Algorithm Exercise 2</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 20px;
+        }
+        #graph {
+            width: 600px;
+            height: 400px;
+            margin-top: 20px;
+        }
+        .node circle {
+            fill: lightblue;
+            stroke: gray;
+            stroke-width: 1.5px;
+        }
+        .node text {
+            font-size: 12px;
+            pointer-events: none;
+        }
+        .link {
+            fill: none;
+            stroke: #999;
+            stroke-width: 2px;
+        }
+        .link.text {
+            font-size: 12px;
+            fill: black;
+        }
+        .link.highlight {
+            stroke: blue;
+        }
+        .highlighted-node {
+            fill: red !important;
+        }
+        .shortest-path {
+            stroke: red;
+            stroke-width: 3px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .red-cell {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Algorithme de Dijkstra</h1>
+    <nav>
+        <ul>
+            <li><a href="../../../acceuil/acceuil.html">Acceuil</a></li>
+            <li><a href="../../../acceuil/introduction/intro.html">Introduction</a></li>
+            <li><a href="../../../acceuil/concept/concept.html">Concept</a></li>
+            <li><a href="../../cas/cas2/cas2.html">Cas Pratique</a></li>
+            <li><a href="../test.html">Test</a></li>
+            <li><a href="../../quiz/quiz.html">Quiz</a></li>
+            <li><a href="../../../acceuil/conclusion/conclusion.html">Conclusion</a></li>
+            <li><a href="../../../acceuil/bibliographie/bibliographie.html">Bibliographie</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="container">
+    <div class="table-container">
+        <h2>Utilisez l'algorithme de Dijkstra pour trouver le plus court chemin de A à C
+        </h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Étapes</th>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+            </tr>
+            </thead>
+            <tbody id="steps-table-body">
+            <tr>
+                <td><input type="text" id="Etape-0"></td>
+                <td><input type="text" id="A-0"></td>
+                <td><input type="text" id="B-0"></td>
+                <td><input type="text" id="C-0"></td>
+                <td><input type="text" id="D-0"></td>
+                <td><input type="text" id="E-0"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="Etape-1"></td>
+                <td><input type="text" id="A-1"></td>
+                <td><input type="text" id="B-1"></td>
+                <td><input type="text" id="C-1"></td>
+                <td><input type="text" id="D-1"></td>
+                <td><input type="text" id="E-1"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="Etape-2"></td>
+                <td><input type="text" id="A-2"></td>
+                <td><input type="text" id="B-2"></td>
+                <td><input type="text" id="C-2"></td>
+                <td><input type="text" id="D-2"></td>
+                <td><input type="text" id="E-2"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="Etape-3"></td>
+                <td><input type="text" id="A-3"></td>
+                <td><input type="text" id="B-3"></td>
+                <td><input type="text" id="C-3"></td>
+                <td><input type="text" id="D-3"></td>
+                <td><input type="text" id="E-3"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="Etape-4"></td>
+                <td><input type="text" id="A-4"></td>
+                <td><input type="text" id="B-4"></td>
+                <td><input type="text" id="C-4"></td>
+                <td><input type="text" id="D-4"></td>
+                <td><input type="text" id="E-4"></td>
+            </tr>
+            </tbody>
+        </table>
+        <input type="text" id="shortest-path-input" placeholder="Entrez le chemin le plus court (ex: ABCD)">
+        <div class="btn-container">
+            <button class="btn" id="check-answer">Vérifier</button>
+            <button class="btn" id="show-result">Afficher Résultat</button>
+        </div>
+    </div>
+    <div id="graph-container">
+        <h2>Graphique</h2>
+        <div id="graph"></div>
+    </div>
+</main>
+<div class="btn-container">
+    <button class="btn" id="prevBtn" onclick="prevPage()">Exercice 1</button>
+    <button class="btn" id="nextBtn" onclick="nextPage()">Exercice 3</button>
+</div>
+
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="exo2oriente.js"></script>
+</body>
+</html>

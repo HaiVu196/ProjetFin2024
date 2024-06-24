@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparaison des Algorithmes de Chemin le Plus Court</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <script src="concept6.js" defer></script>
+    <style>
+        body {
+            padding-bottom: 60px;
+        }
+        /*header {*/
+        /*    background-color: #f4f4f4;*/
+        /*    padding: 20px;*/
+        /*    text-align: center;*/
+        /*}*/
+        /*nav ul {*/
+        /*    list-style: none;*/
+        /*    padding: 0;*/
+        /*}*/
+        /*nav ul li {*/
+        /*    display: inline;*/
+        /*    margin-right: 10px;*/
+        /*}*/
+        /*nav ul li a {*/
+        /*    text-decoration: none;*/
+        /*    color: #333;*/
+        /*}*/
+        /*h1, h2, h3 {*/
+        /*    text-align: center;*/
+        /*}*/
+        /*h2 {*/
+        /*    margin-top: 40px;*/
+        /*}*/
+        p, table {
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        /*footer {*/
+        /*    background-color: #f4f4f4;*/
+        /*    text-align: center;*/
+        /*    padding: 10px;*/
+        /*    position: fixed;*/
+        /*    bottom: 0;*/
+        /*    width: 100%;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<header>
+    <h1>Algorithme de Dijkstra</h1>
+    <nav>
+        <ul>
+            <li><a href="../../acceuil.html">Acceuil</a></li>
+            <li><a href="../../introduction/intro.html">Introduction</a></li>
+            <li><a href="../concept.html">Concept</a></li>
+            <li><a href="../../cas/cas1/cas.html">Cas Pratique</a></li>
+            <li><a href="../../devoir/test.html">Test</a></li>
+            <li><a href="../../quiz/quiz.html">Quiz</a></li>
+            <li><a href="../../conclusion/conclusion.html">Conclusion</a></li>
+            <li><a href="../../bibliographie/bibliographie.html">Bibliographie</a></li>
+        </ul>
+    </nav>
+</header>
+<h1>Comparaison des Algorithmes de Chemin le Plus Court</h1>
+
+<h2>Algorithme de Dijkstra</h2>
+<p>
+    L'algorithme de Dijkstra, conçu par Edsger W. Dijkstra en 1956, est un algorithme de recherche de chemin
+    qui résout le problème du plus court chemin depuis un sommet source dans un graphe pondéré avec des arêtes
+    de poids non négatifs. Il utilise une file de priorité pour sélectionner le sommet avec la plus petite
+    distance actuelle, puis met à jour les distances des sommets adjacents.
+</p>
+
+<h2>Comparaison avec d'autres algorithmes</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Algorithme</th>
+        <th>Complexité en Temps</th>
+        <th>Avantages</th>
+        <th>Inconvénients</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><strong>Dijkstra</strong></td>
+        <td>O(V^2) (avec matrice d'adjacence)<br>O(E + V log V) (avec file de priorité)</td>
+        <td>Simple à implémenter, efficace pour les graphes avec des poids non négatifs</td>
+        <td>Ne fonctionne pas avec des poids négatifs, nécessite des structures de données sophistiquées pour l'efficacité</td>
+    </tr>
+    <tr>
+        <td><strong>Bellman-Ford</strong></td>
+        <td>O(VE)</td>
+        <td>Gère les poids négatifs, peut détecter des cycles de poids négatif, plus simple à implémenter que Dijkstra</td>
+        <td>Plus lent que Dijkstra pour les graphes sans poids négatifs, inefficace pour les grands graphes</td>
+    </tr>
+    <tr>
+        <td><strong>A*</strong></td>
+        <td>O(E)</td>
+        <td>Très efficace avec une bonne heuristique, trouve le chemin optimal rapidement, flexible pour diverses applications</td>
+        <td>Dépend fortement de l'heuristique choisie, peut être complexe à implémenter et ajuster</td>
+    </tr>
+    <tr>
+        <td><strong>Floyd-Warshall</strong></td>
+        <td>O(V^3)</td>
+        <td>Calcule les plus courts chemins entre tous les couples de sommets, simple à implémenter</td>
+        <td>Très coûteux en temps et en mémoire pour les grands graphes, inefficace pour les graphes denses</td>
+    </tr>
+    <tr>
+        <td><strong>Algorithme de Johnson</strong></td>
+        <td>O(V^2 log V + VE)</td>
+        <td>Efficace pour les graphes clairsemés, gère les poids négatifs, combine les avantages de Dijkstra et Bellman-Ford</td>
+        <td>Complexité plus élevée à implémenter, nécessite une transformation préalable du graphe</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Détails supplémentaires</h2>
+<h3>Algorithme de Dijkstra</h3>
+<p>
+    L'algorithme commence avec une distance de 0 pour le sommet source et une distance infinie pour tous les
+    autres sommets. Il utilise une file de priorité (généralement un tas binaire ou un tas de Fibonacci) pour
+    sélectionner le sommet avec la distance minimale non encore traitée, puis met à jour les distances des sommets
+    voisins en conséquence.
+</p>
+
+<h3>Algorithme de Bellman-Ford</h3>
+<p>
+    Bellman-Ford est particulièrement utile pour les graphes avec des arêtes de poids négatifs. Il initialise la
+    distance de départ à 0 et les autres à l'infini, puis itère V-1 fois sur toutes les arêtes, mettant à jour
+    les distances si une arête offre un chemin plus court. Il peut également détecter des cycles de poids négatif
+    en vérifiant une Vème fois les mises à jour.
+</p>
+
+<h3>Algorithme A*</h3>
+<p>
+    A* utilise une fonction heuristique pour guider la recherche de manière plus efficace que Dijkstra. La fonction
+    heuristique h(n) estime le coût du plus court chemin du nœud n au but. A* est optimal et complet si la
+    fonction heuristique est admissible (ne surestime jamais le coût réel).
+</p>
+
+<h3>Algorithme de Floyd-Warshall</h3>
+<p>
+    Floyd-Warshall est un algorithme de programmation dynamique qui trouve les plus courts chemins entre tous les
+    couples de sommets. Il est basé sur l'idée de réutiliser les solutions de sous-problèmes pour construire la
+    solution globale, en utilisant une matrice de distances mise à jour progressivement.
+</p>
+
+<h3>Algorithme de Johnson</h3>
+<p>
+    Johnson combine Bellman-Ford et Dijkstra pour gérer les graphes avec des poids négatifs. Il commence par utiliser
+    Bellman-Ford pour repondérer le graphe afin que toutes les arêtes aient des poids non négatifs, puis applique
+    Dijkstra à chaque sommet pour trouver les plus courts chemins.
+</p>
+
+<footer>
+    <p>Copyright © 2024 - Concept 6</p>
+</footer>
+</body>
+</html>

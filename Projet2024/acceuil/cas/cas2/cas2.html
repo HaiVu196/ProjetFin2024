@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Réseau Routier - Temps et Tarifs</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <script src="cas2.js" defer></script>
+</head>
+<body>
+<header>
+    <h1>Algorithme de Dijkstra</h1>
+    <nav>
+        <ul>
+            <li><a href="../../acceuil.html">Acceuil</a></li>
+            <li><a href="../../introduction/intro.html">Introduction</a></li>
+            <li><a href="../../concept/concept.html">Concept</a></li>
+            <li><a href="../cas2/cas2.html">Cas Pratique</a></li>
+            <li><a href="../../devoir/test.html">Test</a></li>
+            <li><a href="../../quiz/quiz.html">Quiz</a></li>
+            <li><a href="../../conclusion/conclusion.html">Conclusion</a></li>
+            <li><a href="../../bibliographie/bibliographie.html">Bibliographie</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="cas2-container">
+    <div id="problem">
+        <h1>Réseau Routier - Temps et Tarifs</h1>
+        <h2>Le tableau ci-dessous donne les durées et coût (péage) des trajets autoroutiers entre les principales villes du Sud de la France </h2>
+    </div>
+    <h3>Nous calculerons la durée et les tarifs des péages de Valence à Bordeaux (et aussi de Grenoble à Biarritz ) selon le graphique ci-dessous :</h3>
+    <div class="cas2-graph-container">
+        <div class="cas2-graph" id="time-graph">
+            <h2 style="text-align: center;">Temps de Parcours</h2>
+            <!-- Le graphique SVG pour le temps sera rendu ici -->
+        </div>
+        <div class="cas2-graph" id="cost-graph">
+            <h2 style="text-align: center;">Tarifs des Trams de Péage</h2>
+            <!-- Le graphique SVG du coût sera affiché ici -->
+        </div>
+    </div>
+    <button class="cas2-button" id="calculate">Calculer les Chemins</button>
+    <div id="results" class="cas2-results"></div>
+    <div id="stats">
+        <h2 style="text-align: center;">Statistiques</h2>
+        <table id="stats-table" class="cas2-table">
+            <thead>
+            <tr>
+                <th>De</th>
+                <th>À</th>
+                <th>Temps</th>
+                <th>Coût</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Les lignes seront ajoutées dynamiquement -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="btn-container">
+    <button class="cas2-button" id="prevBtn" onclick="prevPage()">Cas 1</button>
+</div>
+<script src="https://d3js.org/d3.v6.min.js"></script>
+</body>
+</html>

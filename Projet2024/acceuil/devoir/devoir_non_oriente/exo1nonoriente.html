@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenue</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        #graph {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            margin-top: 20px;
+        }
+        .node circle {
+            fill: lightblue;
+            stroke: gray;
+            stroke-width: 1.5px;
+        }
+        .node text {
+            font-size: 12px;
+            pointer-events: none;
+        }
+        .link {
+            fill: none;
+            stroke: #999;
+            stroke-width: 2px;
+        }
+        .link-label {
+            font-size: 12px;
+            fill: black;
+        }
+        .link.highlight {
+            stroke: blue;
+        }
+        .highlighted-node {
+            fill: red !important;
+        }
+        table {
+            width: 100%;
+            max-width: 600px;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .red-cell {
+            background-color: red;
+            color: white;
+        }
+        .green-cell {
+            background-color: green;
+            color: white;
+        }
+        .lightgreen-cell {
+            background-color: lightgreen;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>Algorithme de Dijkstra</h1>
+    <nav>
+        <ul>
+            <li><a href="../../../acceuil/acceuil.html">Acceuil</a></li>
+            <li><a href="../../../acceuil/introduction/intro.html">Introduction</a></li>
+            <li><a href="../../../acceuil/concept/concept.html">Concept</a></li>
+            <li><a href="../../cas/cas2/cas2.html">Cas Pratique</a></li>
+            <li><a href="../test.html">Test</a></li>
+            <li><a href="../../quiz/quiz.html">Quiz</a></li>
+            <li><a href="../../../acceuil/conclusion/conclusion.html">Conclusion</a></li>
+            <li><a href="../../../acceuil/bibliographie/bibliographie.html">Bibliographie</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="center-content">
+        <div class="container">
+            <div class="table-container">
+                <h2>Utilisez l'algorithme de Dijkstra pour trouver le plus court chemin</h2>
+                <p>Veuillez saisir les cellules selon les conditions suivantes :<br>
+                    - Saisissez les chiffres et les lettres correspondants comme indiqué dans l'exemple<br>
+                    - saisissez "Infini" avec les cellules correspondantes au lieu d'utiliser le caractère "∞"<br>
+                    - Les cellules vides ne seront pas saisies</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Étapes</th>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                        <th>E</th>
+                        <th>F</th>
+                    </tr>
+                    </thead>
+                    <tbody id="steps-table-body">
+                    <tr>
+                        <td>Départ</td>
+                        <td><input type="text" id="A-0" readonly></td>
+                        <td><input type="text" id="B-0"></td>
+                        <td><input type="text" id="C-0"></td>
+                        <td><input type="text" id="D-0"></td>
+                        <td><input type="text" id="E-0"></td>
+                        <td><input type="text" id="F-0"></td>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td><input type="text" id="A-1"></td>
+                        <td><input type="text" id="B-1"></td>
+                        <td><input type="text" id="C-1"></td>
+                        <td><input type="text" id="D-1"></td>
+                        <td><input type="text" id="E-1"></td>
+                        <td><input type="text" id="F-1"></td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td><input type="text" id="A-2"></td>
+                        <td><input type="text" id="B-2"></td>
+                        <td><input type="text" id="C-2"></td>
+                        <td><input type="text" id="D-2"></td>
+                        <td><input type="text" id="E-2"></td>
+                        <td><input type="text" id="F-2"></td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td><input type="text" id="A-3"></td>
+                        <td><input type="text" id="B-3"></td>
+                        <td><input type="text" id="C-3"></td>
+                        <td><input type="text" id="D-3"></td>
+                        <td><input type="text" id="E-3"></td>
+                        <td><input type="text" id="F-3"></td>
+                    </tr>
+                    <tr>
+                        <td>E</td>
+                        <td><input type="text" id="A-4"></td>
+                        <td><input type="text" id="B-4"></td>
+                        <td><input type="text" id="C-4"></td>
+                        <td><input type="text" id="D-4"></td>
+                        <td><input type="text" id="E-4"></td>
+                        <td><input type="text" id="F-4"></td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td><input type="text" id="A-5"></td>
+                        <td><input type="text" id="B-5"></td>
+                        <td><input type="text" id="C-5"></td>
+                        <td><input type="text" id="D-5"></td>
+                        <td><input type="text" id="E-5"></td>
+                        <td><input type="text" id="F-5"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                    <input type="text" id="shortest-path-input" placeholder="Le plus court chemin Ex: ABEFC">
+                <div class="btn-container">
+                    <button class="btn" id="check-answer">Vérifier</button>
+                    <button class="btn" id="show-result">Afficher Résultat</button>
+                </div>
+            </div>
+            <div id="graph-container">
+                <h2>Graphique</h2>
+                <div id="graph"></div>
+            </div>
+        </div>
+    </section>
+</main>
+<div class="btn-container">
+    <button class="btn" id="prevBtn" onclick="prevPage()">Example 2</button>
+    <button class="btn" id="nextBtn" onclick="nextPage()">Exercice 2</button>
+</div>
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script>
+    function prevPage() {
+        window.location.href = 'example2nonoriente.html';
+    }
+    function nextPage() {
+        window.location.href = 'exo2nonoriente.html';
+    }
+
+    // Data for the graph
+    const nodes = [
+        { id: "A", x: 50, y: 250 },
+        { id: "B", x: 150, y: 150 },
+        { id: "C", x: 450, y: 250 },
+        { id: "D", x: 150, y: 350 },
+        { id: "E", x: 300, y: 150 },
+        { id: "F", x: 300, y: 350 }
+    ];
+
+    const links = [
+        { source: "A", target: "B", weight: 2 },
+        { source: "A", target: "D", weight: 8 },
+        { source: "B", target: "D", weight: 5 },
+        { source: "B", target: "E", weight: 6 },
+        { source: "D", target: "E", weight: 3 },
+        { source: "D", target: "F", weight: 2 },
+        { source: "E", target: "F", weight: 1 },
+        { source: "F", target: "C", weight: 3 },
+        { source: "E", target: "C", weight: 9 }
+    ];
+
+    const correctSteps = [
+        { step: "Départ", distances: { A: '0A', B: 'Infini', C: 'Infini', D: 'Infini', E: 'Infini', F: 'Infini' } },
+        { step: "A", distances: { A: '', B: '2A', C: 'Infini', D: '8A', E: 'Infini', F: 'Infini' } },
+        { step: "B", distances: { A: '', B: '', C: 'Infini', D: '7B', E: '8B', F: 'Infini' } },
+        { step: "D", distances: { A: '', B: '', C: 'Infini', D: '', E: '8B', F: '9D' } },
+        { step: "E", distances: { A: '', B: '', C: '17E', D: '', E: '', F: '9E' } },
+        { step: "F", distances: { A: '', B: '', C: '12F', D: '', E: '', F: '' } }
+    ];
+
+    const shortestPath = "ABEFC";
+
+    // Créer un élément SVG
+    const svg = d3.select("#graph").append("svg")
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .attr("viewBox", "0 0 600 500")
+        .attr("preserveAspectRatio", "xMidYMid meet");
+
+    // Créer des liens
+    const link = svg.append("g")
+        .selectAll("line")
+        .data(links)
+        .enter().append("line")
+        .attr("class", "link")
+        .style("stroke-width", 2);
+
+    // Créer des étiquettes de lien
+    const linkLabel = svg.append("g")
+        .selectAll(".link-label")
+        .data(links)
+        .enter().append("text")
+        .attr("class", "link-label")
+        .text(d => d.weight);
+
+    // Créer des nœuds
+    const node = svg.append("g")
+        .selectAll(".node")
+        .data(nodes)
+        .enter().append("g")
+        .attr("class", "node");
+
+    node.append("circle")
+        .attr("r", 10);
+
+    node.append("text")
+        .attr("dy", -15)
+        .text(d => d.id);
+
+    // Positionner les nœuds et les liens
+    function updateGraphPositions() {
+        node.attr("transform", d => `translate(${d.x},${d.y})`);
+
+        link.attr("x1", d => nodes.find(node => node.id === d.source).x)
+            .attr("y1", d => nodes.find(node => node.id === d.source).y)
+            .attr("x2", d => nodes.find(node => node.id === d.target).x)
+            .attr("y2", d => nodes.find(node => node.id === d.target).y);
+
+        linkLabel
+            .attr("x", d => (nodes.find(node => node.id === d.source).x + nodes.find(node => node.id === d.target).x) / 2)
+            .attr("y", d => (nodes.find(node => node.id === d.source).y + nodes.find(node => node.id === d.target).y) / 2);
+    }
+
+    updateGraphPositions();
+
+    // Fonction pour mettre en évidence les cellules du chemin le plus court
+    function highlightShortestPath(path) {
+        path.forEach((node, index) => {
+            if (index > 0) {
+                document.getElementById(`${node}-${index}`).classList.add('red-cell');
+            }
+        });
+    }
+
+    //Ajouter un écouteur d'événement pour le bouton "Vérifier"
+    document.getElementById('check-answer').addEventListener('click', () => {
+        let correct = true;
+        correctSteps.forEach((step, index) => {
+            Object.entries(step.distances).forEach(([node, value]) => {
+                const input = document.getElementById(`${node}-${index}`);
+                if (input.value !== value) {
+                    input.classList.add('red-cell');
+                    input.classList.remove('green-cell');
+                    correct = false;
+                } else {
+                    input.classList.add('green-cell');
+                    input.classList.remove('red-cell');
+                }
+            });
+        });
+        const shortestPathInput = document.getElementById('shortest-path-input').value;
+        if (shortestPathInput !== shortestPath) {
+            document.getElementById('shortest-path-input').classList.add('red-cell');
+            document.getElementById('shortest-path-input').classList.remove('green-cell');
+        } else {
+            document.getElementById('shortest-path-input').classList.add('green-cell');
+            document.getElementById('shortest-path-input').classList.remove('red-cell');
+        }
+        if (correct) {
+            alert('Correct! Vous avez trouvé le plus court chemin.');
+        } else {
+            alert('Incorrect. Veuillez réessayer.');
+        }
+    });
+
+    // Ajouter un écouteur d'événement pour le bouton "Afficher Résultat"
+    document.getElementById('show-result').addEventListener('click', () => {
+        correctSteps.forEach((step, index) => {
+            Object.entries(step.distances).forEach(([node, value]) => {
+                const input = document.getElementById(`${node}-${index}`);
+                input.value = value;
+                input.classList.add('lightgreen-cell');
+            });
+        });
+        document.getElementById('shortest-path-input').value = shortestPath;
+        document.getElementById('shortest-path-input').classList.add('lightgreen-cell');
+
+        // Mettez en surbrillance le chemin le plus court sur le graphique
+        const shortestPathEdges = [
+            { source: "A", target: "B" },
+            { source: "B", target: "E" },
+            { source: "E", target: "F" },
+            { source: "F", target: "C" }
+        ];
+
+        link.classed("highlight", d =>
+            shortestPathEdges.some(edge =>
+                (d.source === edge.source && d.target === edge.target) ||
+                (d.source === edge.target && d.target === edge.source)
+            )
+        );
+
+        node.select("circle").classed("highlighted-node", d => shortestPath.includes(d.id));
+
+        // Mettez en surbrillance le chemin le plus court dans le tableau
+        highlightShortestPath(shortestPath.split(''));
+    });
+</script>
+</body>
+</html>

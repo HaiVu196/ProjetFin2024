@@ -1,0 +1,188 @@
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="vi">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Bienvenue</title>-->
+<!--    <link rel="stylesheet" href="../../css/styles.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<header>-->
+<!--    <h1>Algorithme de Dijkstra</h1>-->
+<!--    <nav>-->
+<!--        <ul>-->
+<!--            <li><a href="../acceuil/acceuil.html">Acceuil</a></li>-->
+<!--            <li><a href="../introduction/intro.html">Introduction</a></li>-->
+<!--            <li><a href="../concept/concept.html">Concept</a></li>-->
+<!--            <li><a href="../cas/cas.html">Cas Pratique</a></li>-->
+<!--            <li><a href="../devoir/test.html">Test</a></li>-->
+<!--            <li><a href="../quiz/quiz.html">Quiz</a></li>-->
+<!--            <li><a href="../conclusion/conclusion.html">Conclusion</a></li>-->
+<!--            <li><a href="bibliographie.html">Bibliographie</a></li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--</header>-->
+<!--<main>-->
+<!--    <h1>References</h1>-->
+
+<!--    <h2>JavaScript</h2>-->
+<!--    <ul>-->
+<!--        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">MDN JavaScript Guide</a></li>-->
+<!--        <li><a href="https://javascript.info/">JavaScript.info</a></li>-->
+<!--    </ul>-->
+
+<!--    <h2>HTML</h2>-->
+<!--    <ul>-->
+<!--        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">MDN HTML Documentation</a></li>-->
+<!--        <li><a href="https://www.w3schools.com/html/">W3Schools HTML Tutorial</a></li>-->
+<!--    </ul>-->
+<!--    <h2>JSXGraph</h2>-->
+<!--    <ul>-->
+<!--        <li><a href="https://jsxgraph.uni-bayreuth.de/wp/">JSXGraph Documentation</a></li>-->
+<!--    </ul>-->
+<!--    <h2>D3.JS</h2>-->
+<!--    <ul>-->
+<!--        <li><a href="https://observablehq.com/@d3/gallery?utm_source=d3js-org&utm_medium=nav&utm_campaign=try-observable">D3.JS Example</a></li>-->
+<!--    </ul>-->
+<!--    <h2>AUTRES RÉFÉRENCES</h2>-->
+<!--    <ul>-->
+<!--        <li><a href="https://www.geeksforgeeks.org/introduction-to-dijkstras-shortest-path-algorithm/">Introduction to Dijkstra’s Shortest Path Algorithm</a></li>-->
+<!--        <li><a href="https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra">Algorithme de Dijkstra Wiki</a></li>-->
+<!--        <li><a href="https://arnaud.jobin.pro/BCPST2/Informatique/TP_10_11_prof.pdf">Algorithme de Dijkstra</a></li>-->
+<!--        <li><a href="http://yallouz.arie.free.fr/terminale_cours/graphes/graphes.php?page=g3">Introduction à la théorie des Graphes</a></li>-->
+<!--        <li><a href="http://dominique.frin.free.fr/terminales/exosTES-Dijkstra-cor.pdf">Example Dijkstra</a></li>-->
+
+<!--    </ul>-->
+
+
+<!--</main>-->
+<!--<footer>-->
+<!--    <p>Copyright © 2024 Par HAI</p>-->
+<!--</footer>-->
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenue</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <style>
+        /*body {*/
+        /*    font-family: Arial, sans-serif;*/
+        /*    line-height: 1.6;*/
+        /*    margin: 0;*/
+        /*    padding: 0;*/
+        /*    box-sizing: border-box;*/
+        /*}*/
+        /*header {*/
+        /*    background-color: #f4f4f4;*/
+        /*    padding: 20px;*/
+        /*    text-align: center;*/
+        /*}*/
+        /*nav ul {*/
+        /*    list-style: none;*/
+        /*    padding: 0;*/
+        /*}*/
+        /*nav ul li {*/
+        /*    display: inline;*/
+        /*    margin-right: 10px;*/
+        /*}*/
+        /*nav ul li a {*/
+        /*    text-decoration: none;*/
+        /*    color: #333;*/
+        /*    font-weight: bold;*/
+        /*}*/
+        /*nav ul li a:hover {*/
+        /*    color: #007BFF;*/
+        /*}*/
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        /*h1, h2 {*/
+        /*    text-align: center;*/
+        /*}*/
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 20px 0;
+        }
+        ul li a {
+            text-decoration: none;
+            color: rgba(255, 0, 0, 0.4);
+            font-weight: bold;
+            border: 2px solid #000000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        /*ul li a:hover {*/
+        /*    background-color: #007BFF;*/
+        /*    color: white;*/
+        /*}*/
+        /*footer {*/
+        /*    background-color: #f4f4f4;*/
+        /*    text-align: center;*/
+        /*    padding: 10px;*/
+        /*    position: fixed;*/
+        /*    bottom: 0;*/
+        /*    width: 100%;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<header>
+    <h1>Algorithme de Dijkstra</h1>
+    <nav>
+        <ul>
+            <li><a href="../acceuil.html">Acceuil</a></li>
+            <li><a href="../introduction/intro.html">Introduction</a></li>
+            <li><a href="../concept/concept.html">Concept</a></li>
+            <li><a href="../cas/cas2/cas2.html">Cas Pratique</a></li>
+            <li><a href="../devoir/test.html">Test</a></li>
+            <li><a href="../quiz/quiz.html">Quiz</a></li>
+            <li><a href="../conclusion/conclusion.html">Conclusion</a></li>
+            <li><a href="bibliographie.html">Bibliographie</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1>References</h1>
+
+    <h2>JavaScript</h2>
+    <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">MDN JavaScript Guide</a></li>
+        <li><a href="https://javascript.info/">JavaScript.info</a></li>
+    </ul>
+
+    <h2>HTML</h2>
+    <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">MDN HTML Documentation</a></li>
+        <li><a href="https://www.w3schools.com/html/">W3Schools HTML Tutorial</a></li>
+    </ul>
+    <h2>JSXGraph</h2>
+    <ul>
+        <li><a href="https://jsxgraph.uni-bayreuth.de/wp/">JSXGraph Documentation</a></li>
+    </ul>
+    <h2>D3.JS</h2>
+    <ul>
+        <li><a href="https://observablehq.com/@d3/gallery?utm_source=d3js-org&utm_medium=nav&utm_campaign=try-observable">D3.JS Example</a></li>
+    </ul>
+    <h2>Autres Références</h2>
+    <ul>
+        <li><a href="https://www.geeksforgeeks.org/introduction-to-dijkstras-shortest-path-algorithm/">Introduction to Dijkstra’s Shortest Path Algorithm</a></li>
+        <li><a href="https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra">Algorithme de Dijkstra Wiki</a></li>
+        <li><a href="https://arnaud.jobin.pro/BCPST2/Informatique/TP_10_11_prof.pdf">Algorithme de Dijkstra</a></li>
+        <li><a href="http://yallouz.arie.free.fr/terminale_cours/graphes/graphes.php?page=g3">Introduction à la théorie des Graphes</a></li>
+        <li><a href="http://dominique.frin.free.fr/terminales/exosTES-Dijkstra-cor.pdf">Example Dijkstra</a></li>
+
+    </ul>
+
+
+</main>
+<footer>
+    <p>Copyright © 2024 - Bibliographie</p>
+</footer>

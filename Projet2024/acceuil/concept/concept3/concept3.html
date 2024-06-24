@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemple de graphe pour démontrer les problèmes de Dijkstra avec des poids négatifs</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <script src="concept3.js" defer></script>
+</head>
+<body>
+<header>
+    <h1>Algorithme de Dijkstra</h1>
+    <nav>
+        <ul>
+            <li><a href="../../acceuil.html">Acceuil</a></li>
+            <li><a href="../../introduction/intro.html">Introduction</a></li>
+            <li><a href="../concept.html">Concept</a></li>
+            <li><a href="../../cas/cas2/cas2.html">Cas Pratique</a></li>
+            <li><a href="../../devoir/test.html">Test</a></li>
+            <li><a href="../../quiz/quiz.html">Quiz</a></li>
+            <li><a href="../../conclusion/conclusion.html">Conclusion</a></li>
+            <li><a href="../../bibliographie/bibliographie.html">Bibliographie</a></li>
+        </ul>
+    </nav>
+
+</header>
+<main>
+    <section class="content-left">
+        <h2>Pourquoi Dijkstra ne fonctionne pas avec des poids négatifs ?</h2>
+        <div class="explanation" id="explanation">Ce graphe montre pourquoi Dijkstra ne fonctionne pas avec des poids négatifs.</div>
+        <svg width="800" height="600"></svg>
+        <div class="notes" id="notes">
+            <h3>Note:</h3>
+            <ul id="notesList">
+                <li>En regardant le graphique, nous pouvons voir que : le chemin le plus court du sommet A au sommet D sera le chemin A->C->D.</li>
+                <li>Cependant, en appliquant la pensée algorithmique de Dijkstra, nous avons :<br>
+                    Initialisation : [A] = 0, [B] = INF, [C] = INF, [D] = INF.<br>
+                    Commencez à partir du sommet A. Mise à jour : [B] = 2, [C] = 6.<br>
+                    Commencez à partir du sommet B. Mise à jour : [D] = 5.<br>
+                    Commencez à partir du sommet D. Comme il s'agit du sommet cible, arrêtez l'algorithme et concluez = 5.<br><br>
+                    Évidemment, comme la méthode ne prend pas en compte le cas où la longueur de trajet la plus petite possible est réduite, la branche provenant du sommet C est éliminée, conduisant à des résultats incorrects.
+                </li>
+            </ul>
+        </div>
+    </section>
+    <div class="btn-container">
+        <button class="btn" id="prevBtn" onclick="prevPage()">Limitation ?</button>
+        <button class="btn" id="nextBtn" onclick="nextPage()">Theorie</button>
+    </div>
+</main>
+<footer>
+    <p>Copyright © 2024 - Concept 3</p>
+</footer>
+</body>
+</html>

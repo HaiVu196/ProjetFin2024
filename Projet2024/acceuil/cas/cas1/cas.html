@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Réseau de Trains - Algorithme de Dijkstra</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <script src="cas.js" defer></script>
+</head>
+<body>
+<header>
+    <h1>Algorithme de Dijkstra</h1>
+    <nav>
+        <ul>
+            <li><a href="../../acceuil.html">Acceuil</a></li>
+            <li><a href="../../introduction/intro.html">Introduction</a></li>
+            <li><a href="../../concept/concept.html">Concept</a></li>
+            <li><a href="../cas2/cas2.html">Cas Pratique</a></li>
+            <li><a href="../../devoir/test.html">Test</a></li>
+            <li><a href="../../quiz/quiz.html">Quiz</a></li>
+            <li><a href="../../conclusion/conclusion.html">Conclusion</a></li>
+            <li><a href="../../bibliographie/bibliographie.html">Bibliographie</a></li>
+        </ul>
+    </nav>
+</header>
+<div id="problem" class="cas-problem">
+    <h1>Réseau de Trains - Algorithme de Dijkstra</h1>
+    <h2>Une région est munie d’un réseau de trains, représenté par le graphe ci-contre.</h2>
+    <h4>Les stations sont symbolisées par les sommets A, B, C, D, E, F et G.<br> Chaque arête représente une ligne reliant deux gares.<br> Les temps de parcours (correspondance comprise) en minutes entre chaque sommet ont été rajoutés sur le graphe.</h4>
+    <p>1. Déterminer le plus court chemin en minutes, reliant la gare B à la gare G. Justifier la réponse grâce à un algorithme.</p>
+    <p>2. Quelle est la longueur en minutes de ce chemin ?</p>
+</div>
+<div class="cas-container">
+    <div id="table" class="cas-table">
+        <h2 style="text-align: center;">Tableau des étapes</h2>
+        <table id="steps-table">
+            <thead>
+            <tr>
+                <th>Étapes</th>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+                <th>G</th>
+            </tr>
+            </thead>
+            <tbody id="steps-table-body">
+            <!-- Les lignes seront ajoutées dynamiquement -->
+            </tbody>
+        </table>
+        <button id="next-step" class="cas-button">Suivant</button>
+        <div id="explanation" class="cas-explanation"></div>
+    </div>
+    <div id="graph" class="cas-graph">
+        <h2 style="text-align: center;">Graphique</h2>
+        <!-- Le graphique SVG sera rendu ici -->
+    </div>
+</div>
+<div class="btn-container">
+    <button class="cas-button" id="nextBtn" onclick="nextPage()">Précédent</button>
+</div>
+</main>
+
+<script src="https://d3js.org/d3.v6.min.js"></script>
+</body>
+</html>
